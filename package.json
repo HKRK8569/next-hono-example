@@ -1,0 +1,11 @@
+{
+  "name": "next-hono-example",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "dependencies": {
+    "prettier": "^3.4.2"
+  }
+}
