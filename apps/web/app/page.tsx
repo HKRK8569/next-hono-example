@@ -1,19 +1,8 @@
-"use client";
-import { useEffect, useState } from "react";
+import { client } from "./_lib/client";
 
-export default function Home() {
-  const [message, setMessage] = useState();
+export default async function Home() {
+  const data = await client.hono.$get();
+  const json = await data.json();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/api/hello");
-      const { message } = await res.json();
-      setMessage(message);
-    };
-    fetchData();
-  }, []);
-
-  if (!message) return <p>Loading...</p>;
-
-  return <p>{message}</p>;
+  return <p>{json.comment}</p>;
 }

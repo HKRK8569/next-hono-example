@@ -1,14 +1,15 @@
 import { Hono } from "hono";
 import { handle } from "hono/vercel";
 import { app as backend } from "@next-hono-example/backend";
-export const runtime = "edge";
 
-const app = new Hono().basePath("/api").route("/", backend);
+const handleDevOnly = (...args: Parameters<ReturnType<typeof handle>>) => {
+  const app = new Hono().basePath("/api").route("/", backend);
+  return handle(app)(...args);
+};
 
-app.get("/hello", (c) => {
-  return c.json({
-    message: "Hello from Hono!",
-  });
-});
-
-export const GET = handle(app);
+export const runtime = "nodejs";
+export const GET = handleDevOnly;
+export const POST = handleDevOnly;
+export const PUT = handleDevOnly;
+export const PATCH = handleDevOnly;
+export const DELETE = handleDevOnly;
