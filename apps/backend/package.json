@@ -1,6 +1,7 @@
 {
   "name": "@next-hono-example/backend",
   "type": "module",
+  "version": "1.0.0",
   "scripts": {
     "dev": "tsx watch src/server.ts"
   },

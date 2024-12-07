@@ -1,5 +1,6 @@
 {
   "name": "@next-hono-example/web",
+  "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -7,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next-hono-example/backend": "^1.0.0",
     "hono": "^4.6.13",
     "next": "14.2.5",
     "react": "18.2.0",
